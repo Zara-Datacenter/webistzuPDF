@@ -1,0 +1,680 @@
+<p align="center"><img src="public/images/favicon-512x512.png" width="80"></p>
+<h1 align="center">WebistzuPDF</h1>
+
+**WebistzuPDF** is a powerful, privacy-first, client-side PDF toolkit that is self hostable and allows you to manipulate, edit, merge, and process PDF files directly in your browser. No server-side processing is required, ensuring your files remain secure and private.
+
+![Docker Pulls](https://img.shields.io/docker/pulls/zara-datacenter/webistzupdf) ![GitHub Stars](https://img.shields.io/github/stars/Zara-Datacenter/webistzupdf?style=social)
+
+![WebistzuPDF Tools](public/images/og-image.png)
+
+---
+
+## 📚 Documentation
+
+[![Documentation](https://img.shields.io/badge/Docs-VitePress-646cff?style=for-the-badge&logo=vite&logoColor=white)](https://pdf.webistzu.com/docs/)
+
+Visit our [Documentation](https://pdf.webistzu.com/docs/) for:
+
+- **Getting Started** guide
+- **Tools Reference** (50+ tools)
+- **Self-Hosting** guides (Docker, Vercel, Netlify, Cloudflare, AWS, Hostinger, Nginx, Apache)
+- **Contributing** guide
+
+---
+
+## 📜 Licensing
+
+WebistzuPDF source code is licensed under the **MIT License** - free to use, modify, and distribute without restrictions.
+
+- ✅ Use freely for personal and commercial projects
+- ✅ Modify and customize as you need
+- ✅ Self-host without restrictions
+- ✅ No copyleft requirements for your own code
+
+> **Note:** This project includes some third-party AGPL-3.0 components (CPDF, PyMuPDF, Ghostscript). See [LICENSE](LICENSE) for details.
+
+<hr>
+
+## ⭐ Stargazers over time
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Zara-Datacenter/webistzuPDF&type=date&legend=top-left)](https://www.star-history.com/#Zara-Datacenter/webistzuPDF&type=date&legend=top-left)
+
+---
+
+## ✨ Why WebistzuPDF?
+
+- **Privacy First**: All processing happens in your browser. Your files are never uploaded to a server, guaranteeing 100% privacy.
+- **No Limits**: Manipulate as many files as you want, as often you want. There are no restrictions or upload limits.
+- **High Performance**: Built with modern web technologies, WebistzuPDF is fast and efficient, handling even large PDF files with ease.
+- **Completely Free**: WebistzuPDF is a free and open-source tool for everyone.
+
+---
+
+## 🛠️ Features / Tools Supported
+
+WebistzuPDF offers a comprehensive suite of tools to handle all your PDF needs.
+
+### Organize & Manage PDFs
+
+| Tool Name                  | Description                                                                                             |
+| :------------------------- | :------------------------------------------------------------------------------------------------------ |
+| **Merge PDFs**             | Combine multiple PDF files into one.                                                                    |
+| **Split PDFs**             | Extract specific pages or divide a document into smaller files.                                         |
+| **Organize Pages**         | Reorder, duplicate, or delete pages with a simple drag-and-drop interface.                              |
+| **Extract Pages**          | Save a specific range of pages as a new PDF.                                                            |
+| **Delete Pages**           | Remove unwanted pages from your document.                                                               |
+| **Rotate PDF**             | Rotate individual or all pages in a document.                                                           |
+| **N-Up PDF**               | Combine multiple pages onto a single page.                                                              |
+| **View PDF**               | A powerful, integrated PDF viewer.                                                                      |
+| **Alternate & Mix pages**  | Merge pages by alternating pages from each PDF.                                                         |
+| **Posterize PDF**          | Split a PDF into multiple smaller pages for print.                                                      |
+| **PDF Multi Tool**         | Merge, Split, Organize, Delete, Rotate, Add Blank Pages, Extract and Duplicate in an unified interface. |
+| **Add Attachments**        | Embed one or more files into your PDF.                                                                  |
+| **Extract Attachments**    | Extract all embedded files from PDF(s) as a ZIP.                                                        |
+| **Edit Attachments**       | View or remove attachments in your PDF.                                                                 |
+| **Divide Pages**           | Divide pages horizontally or vertically.                                                                |
+| **Combine to Single Page** | Stitch all pages into one continuous scroll.                                                            |
+| **Add Blank Page**         | Insert an empty page anywhere in your PDF.                                                              |
+| **Reverse Pages**          | Flip the order of all pages in your document.                                                           |
+| **View Metadata**          | Inspect the hidden properties of your PDF.                                                              |
+| **PDFs to ZIP**            | Package multiple PDF files into a ZIP archive.                                                          |
+| **Compare PDFs**           | Compare two PDFs side by side.                                                                          |
+
+### Edit & Modify PDFs
+
+| Tool Name                 | Description                                                                                                                                                                                     |
+| :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **PDF Editor**            | A comprehensive editor to modify your PDFs.                                                                                                                                                     |
+| **Create Fillable Forms** | Create professional fillable PDF forms with text fields, checkboxes, dropdowns, radio buttons, signatures, and more. Fully compliant with PDF standards for compatibility with all PDF viewers. |
+| **Add Page Numbers**      | Easily add page numbers with customizable formatting.                                                                                                                                           |
+| **Add Watermark**         | Add text or image watermarks to protect your documents.                                                                                                                                         |
+| **Header & Footer**       | Add customizable headers and footers.                                                                                                                                                           |
+| **Crop PDF**              | Crop specific pages or the entire document.                                                                                                                                                     |
+| **Invert Colors**         | Invert the colors of your PDF pages for better readability.                                                                                                                                     |
+| **Change Background**     | Modify the background color of your PDF.                                                                                                                                                        |
+| **Change Text Color**     | Change the color of text content within the PDF.                                                                                                                                                |
+| **Fill Forms**            | Fill out PDF forms directly in your browser.                                                                                                                                                    |
+| **Flatten PDF**           | Flatten form fields and annotations into static content.                                                                                                                                        |
+| **Remove Annotations**    | Remove comments, highlights, and other annotations.                                                                                                                                             |
+| **Remove Blank Pages**    | Auto detect and remove blank pages in a PDF.                                                                                                                                                    |
+| **Edit Bookmarks**        | Add, Edit, Create, Import and Export PDF Bookmarks.                                                                                                                                             |
+| **Add Stamps**            | Add image stamps to your PDF using the annotation toolbar.                                                                                                                                      |
+| **Table of Contents**     | Generate a table of contents page from PDF bookmarks.                                                                                                                                           |
+| **Redact Content**        | Permanently remove sensitive content from your PDFs.                                                                                                                                            |
+
+### Convert to PDF
+
+| Tool Name           | Description                                                     |
+| :------------------ | :-------------------------------------------------------------- |
+| **Image to PDF**    | Convert JPG, PNG, WebP, SVG, BMP, HEIC, and TIFF images to PDF. |
+| **JPG to PDF**      | Convert JPG images to PDF.                                      |
+| **PNG to PDF**      | Convert PNG images to PDF.                                      |
+| **WebP to PDF**     | Convert WebP images to PDF.                                     |
+| **SVG to PDF**      | Convert SVG images to PDF.                                      |
+| **BMP to PDF**      | Convert BMP images to PDF.                                      |
+| **HEIC to PDF**     | Convert HEIC images to PDF.                                     |
+| **TIFF to PDF**     | Convert TIFF images to PDF.                                     |
+| **Markdown to PDF** | Convert `.md` files into professional PDF documents.            |
+| **Text to PDF**     | Convert plain text files into a PDF.                            |
+| **EPUB to PDF**     | Convert EPUB e-books to PDF format.                             |
+| **JSON to PDF**     | Convert JSON to PDF.                                            |
+
+### Convert from PDF
+
+| Tool Name            | Description                                                                    |
+| :------------------- | :----------------------------------------------------------------------------- |
+| **PDF to Image**     | Convert PDF pages to JPG, PNG, WebP, BMP, or TIFF formats.                     |
+| **PDF to JPG**       | Convert each PDF page into a JPG image.                                        |
+| **PDF to PNG**       | Convert each PDF page into a PNG image.                                        |
+| **PDF to WebP**      | Convert each PDF page into a WebP image.                                       |
+| **PDF to BMP**       | Convert each PDF page into a BMP image.                                        |
+| **PDF to TIFF**      | Convert each PDF page into a TIFF image.                                       |
+| **PDF to Greyscale** | Convert a color PDF into a black-and-white version.                            |
+| **OCR PDF**          | Make scanned PDFs searchable and copyable using Optical Character Recognition. |
+| **PDF to JSON**      | Convert PDF files to JSON format.                                              |
+
+### Secure & Optimize PDFs
+
+| Tool Name               | Description                                                                                      |
+| :---------------------- | :----------------------------------------------------------------------------------------------- |
+| **Compress PDF**        | Reduce file size while maintaining quality.                                                      |
+| **Repair PDF**          | Attempt to repair and recover data from a corrupted PDF.                                         |
+| **Encrypt PDF**         | Add a password to protect your PDF from unauthorized access.                                     |
+| **Decrypt PDF**         | Remove password protection from a PDF (password required).                                       |
+| **Change Permissions**  | Set or modify user permissions for printing, copying, and editing.                               |
+| **Sign PDF**            | Add your digital signature to a document.                                                        |
+| **Digital Signature**   | Add cryptographic digital signatures using X.509 certificates (PFX/PEM).                         |
+| **Validate Signature**  | Verify digital signatures and view certificate details.                                          |
+| **Redact Content**      | Permanently remove sensitive content from your PDFs.                                             |
+| **Edit Metadata**       | View and modify PDF metadata (author, title, keywords, etc.).                                    |
+| **Remove Metadata**     | Strip all metadata from your PDF for privacy.                                                    |
+| **Linearize PDF**       | Optimize PDF for fast web view.                                                                  |
+| **Sanitize PDF**        | Remove potentially unwanted or malicous files from PDF.                                          |
+| **Fix Page Size**       | Standardize all pages to a uniform size.                                                         |
+| **Page Dimensions**     | Analyze page size, orientation, and units.                                                       |
+| **Remove Restrictions** | Remove password protection and security restrictions associated with digitally signed PDF files. |
+
+---
+
+## 🌍 Translations
+
+WebistzuPDF is available in multiple languages:
+
+| Language            | Status                                                                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| English             | [![English](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/en/common.json)                |
+| Chinese             | [![Chinese](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/zh/common.json)                |
+| Traditional Chinese | [![Traditional Chinese](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/zh-TW/common.json) |
+| French              | [![French](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/fr/common.json)                 |
+| German              | [![German](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/de/common.json)                 |
+| Indonesian          | [![Indonesian](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/id/common.json)             |
+| Italian             | [![Italian](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/it/common.json)                |
+| Portuguese          | [![Portuguese](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/pt/common.json)             |
+| Turkish             | [![Turkish](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/tr/common.json)                |
+| Vietnamese          | [![Vietnamese](https://img.shields.io/badge/Complete-green?style=flat-square)](public/locales/vi/common.json)             |
+
+Want to help translate WebistzuPDF into your language? Check out our [Translation Guide](TRANSLATION.md)!
+
+---
+
+## 🚀 Getting Started
+
+You can run WebistzuPDF locally for development or personal use.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) (or yarn/pnpm)
+- [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/install/) (for containerized setup)
+
+### 🚀 Quick Start with Docker
+
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/K4AU2B)
+
+You can run WebistzuPDF directly from Docker Hub or GitHub Container Registry without cloning the repository:
+
+You can also watch the video on how to set it up 👉
+[WebistzuPDF Docker Setup](https://drive.google.com/file/d/1C4eJ2nqeaH__1Tlad-xuBHaF2Ha4fSBf/view?usp=drive_link)
+
+**Using Docker Hub:**
+
+```bash
+docker run -p 3000:8080 webistzupdf/webistzupdf:latest
+```
+
+**Using GitHub Container Registry:**
+
+```bash
+docker run -p 3000:8080 ghcr.io/zara-datacenter/webistzupdf:latest
+```
+
+Open your browser at: http://localhost:3000
+
+This is the fastest way to try WebistzuPDF without setting up a development environment.
+
+### Static Hosting using Netlify, Vercel, and GitHub Pages
+
+It is very straightforward to host your own instance of WebistzuPDF using a static web page hosting service. Plus, services such as Netlify, Vercel, and GitHub Pages all offer a free tier for getting started. See [Static Hosting](https://github.com/Zara-Datacenter/webistzupdf/blob/main/STATIC-HOSTING.md)) for details.
+
+### 🏠 Self-Hosting Locally
+
+Since WebistzuPDF is fully client-side, all processing happens in the user's browser and no server-side processing is required. This means you can host WebistzuPDF as simple static files on any web server or hosting platform.
+
+**Download from Releases (Recommended):**
+
+The easiest way to self-host is to download the pre-built distribution file from our [GitHub releases](https://github.com/Zara-Datacenter/webistzupdf/releases). Each release includes a `dist-{version}.zip` file that contains all necessary files for self-hosting.
+
+1. Go to [WebistzuPDF Releases](https://github.com/Zara-Datacenter/webistzupdf/releases)
+2. Download the latest `dist-{version}.zip` file
+3. Extract the zip file
+4. Serve the extracted folder with your preferred web server
+
+**Serve the extracted folder (requires Node.js):**
+
+```bash
+# Navigate to the extracted folder
+cd dist-1.7.3  # Replace with your version
+
+# Start a local server
+npx http-server -c-1
+```
+
+The website will be accessible at: `http://localhost:8080/`
+
+> **Note:** The `-c-1` flag disables caching for development.
+
+**Build from Source (Advanced):**
+
+If you prefer to build from source:
+
+```bash
+# Clone the repository
+git clone https://github.com/Zara-Datacenter/webistzupdf.git
+cd webistzupdf
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Package the distribution for hosting (optional)
+npm run package
+
+# Preview the build locally
+npm run preview
+
+# The website will be accessible at: http://localhost:4173/
+
+```
+
+**Compression Modes:**
+
+WebistzuPDF supports different compression modes for optimized builds:
+
+```bash
+# Gzip only (smallest Docker image size)
+npm run build:gzip
+docker build --build-arg COMPRESSION_MODE=g -t webistzupdf:gzip .
+
+# Brotli only (best compression ratio)
+npm run build:brotli
+docker build --build-arg COMPRESSION_MODE=b -t webistzupdf:brotli .
+
+# No compression (fastest build time)
+npm run build:original
+docker build --build-arg COMPRESSION_MODE=o -t webistzupdf:original .
+
+# All formats (default, maximum browser compatibility)
+npm run build:all
+docker build --build-arg COMPRESSION_MODE=all -t webistzupdf:all .
+```
+
+| Mode  | Files Kept  | Use Case                          |
+| ----- | ----------- | --------------------------------- |
+| `g`   | `.gz` only  | Standard nginx or minimal size    |
+| `b`   | `.br` only  | Modern CDN with Brotli support    |
+| `o`   | originals   | Development or custom compression |
+| `all` | all formats | Maximum compatibility (default)   |
+
+**CDN Optimization:**
+
+WebistzuPDF can use jsDelivr CDN to serve large WASM files (LibreOffice, Ghostscript, PyMuPDF) for improved performance and reduced bandwidth costs:
+
+```bash
+# Production build with CDN (Recommended)
+VITE_USE_CDN=true npm run build
+
+# Standard build with local files only
+npm run build
+```
+
+**How it works:**
+
+- When `VITE_USE_CDN=true`: Browser loads WASM files from jsDelivr CDN (fast, global delivery)
+- Local files are **always included** as automatic fallback
+- If CDN fails then it falls back to local files
+
+**Subdirectory Hosting:**
+
+WebistzuPDF can also be hosted from a subdirectory (e.g., `example.com/tools/webistzupdf/`):
+
+```bash
+
+# Example:
+# 1. Build the app with the specific BASE_URL. BASE_URL must have a trailing and leading slash. The BASE_URL can be any url of your choice. Here we are using /tools/webistzupdf/ as an example.
+
+BASE_URL=/tools/webistzupdf/ npm run build
+
+# 2. Create the nested directory structure inside serve-test (or any folder of your choice for local testing. In case of production, create the nested directory structure inside the root directory)
+mkdir -p serve-test/tools/webistzupdf
+
+# 3. Copy all files from the 'dist' folder into that nested directory
+cp -r dist/* serve-test/tools/webistzupdf/
+
+# 4. Serve the 'serve-test' folder
+npx serve serve-test
+```
+
+The website can be accessible at: `http://localhost:3000/tools/webistzupdf/`
+
+The `npm run package` command creates a `dist-{version}.zip` file that you can use for self-hosting.
+
+**Docker Subdirectory Deployment:**
+
+WebistzuPDF's Docker image also supports the `BASE_URL` build argument for subdirectory deployments:
+
+```bash
+# Build for subdirectory deployment
+docker build --build-arg BASE_URL=/webistzupdf/ -t webistzupdf .
+
+# Run the container
+docker run -p 3000:8080 webistzupdf
+
+# The app will be accessible at http://localhost:3000/webistzupdf/
+```
+
+**Combined with Simple Mode:**
+
+```bash
+# Build with both BASE_URL and SIMPLE_MODE
+docker build \
+  --build-arg BASE_URL=/tools/pdf/ \
+  --build-arg SIMPLE_MODE=true \
+  -t webistzupdf-simple .
+
+docker run -p 3000:8080 webistzupdf-simple
+```
+
+> **Important**:
+>
+> - Always include trailing slashes in `BASE_URL` (e.g., `/webistzupdf/` not `/webistzupdf`)
+> - The default value is `/` for root deployment
+
+### 🚀 Run with Docker Compose (Recommended)
+
+For a more robust setup with auto-restart capabilities:
+
+1. **Download the repo and create a `docker-compose.yml` file or use the one given in repo**:
+
+```yaml
+services:
+  webistzupdf:
+    image: ghcr.io/zara-datacenter/webistzupdf:latest
+    container_name: webistzupdf
+    ports:
+      - '3000:8080'
+    restart: unless-stopped
+```
+
+2. **Start the application**:
+
+```bash
+docker-compose up -d
+```
+
+The application will be available at `http://localhost:3000`.
+
+### 🏢 Simple Mode for Internal Use
+
+For organizations that want a clean, distraction-free interface focused solely on PDF tools, WebistzuPDF supports a **Simple Mode** that hides all branding and marketing content.
+
+**What Simple Mode does:**
+
+- Hides navigation, hero section, features, FAQ, testimonials, and footer
+- Shows only the essential PDF tools
+- Updates page title to "PDF Tools"
+- Perfect for internal company tools and educational institutions
+
+For more details, see [SIMPLE_MODE.md](SIMPLE_MODE.md).
+
+### 🔒 Security Features
+
+WebistzuPDF runs as a non-root user using nginx-unprivileged for enhanced security:
+
+- **Non-Root Execution**: Container runs with minimal privileges using nginx-unprivileged
+- **Port 8080**: Uses high port number to avoid requiring root privileges
+- **Security Best Practices**: Follows Principle of Least Privilege
+
+#### Basic Usage
+
+```bash
+docker build -t webistzupdf .
+docker run -p 8080:8080 webistzupdf
+```
+
+For detailed security configuration, see [SECURITY.md](SECURITY.md).
+
+### Digital Signature CORS Proxy (Required)
+
+The **Digital Signature** tool uses a signing library that may need to fetch certificate chain data from certificate authority provider. Since many certificate servers don't include CORS headers, a proxy is required for this feature to work in the browser.
+
+**When is the proxy needed?**
+
+- Only when using the Digital Signature tool
+- Only if your certificate requires fetching issuer certificates from external URLs
+- Self-signed certificates typically don't need this
+
+**Deploying the CORS Proxy (Cloudflare Workers):**
+
+1. **Navigate to the cloudflare directory:**
+
+   ```bash
+   cd cloudflare
+   ```
+
+2. **Login to Cloudflare (if not already):**
+
+   ```bash
+   npx wrangler login
+   ```
+
+3. **Deploy the worker:**
+
+   ```bash
+   npx wrangler deploy
+   ```
+
+4. **Note your worker URL** (e.g., `https://webistzupdf-cors-proxy.your-subdomain.workers.dev`)
+
+5. **Set the environment variable when building:**
+   ```bash
+   VITE_CORS_PROXY_URL=https://your-worker-url.workers.dev npm run build
+   ```
+
+#### Production Security Features
+
+The CORS proxy includes several security measures:
+
+| Feature                 | Description                                                               |
+| ----------------------- | ------------------------------------------------------------------------- |
+| **URL Restrictions**    | Only allows certificate URLs (`.crt`, `.cer`, `.pem`, `/certs/`, `/ocsp`) |
+| **Private IP Blocking** | Blocks requests to localhost, 10.x, 192.168.x, 172.16-31.x                |
+| **File Size Limit**     | Rejects files larger than 10MB                                            |
+| **Rate Limiting**       | 60 requests per IP per minute (requires KV)                               |
+| **HMAC Signatures**     | Optional client-side signing (limited protection)                         |
+
+#### Enabling Rate Limiting (Recommended)
+
+Rate limiting requires Cloudflare KV storage:
+
+```bash
+cd cloudflare
+
+# Create KV namespace
+npx wrangler kv namespace create "RATE_LIMIT_KV"
+
+# Copy the returned ID and add to wrangler.toml:
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "YOUR_ID_HERE"
+
+# Redeploy
+npx wrangler deploy
+```
+
+**Free tier limits:** 100,000 reads/day, 1,000 writes/day (~300-500 signatures/day)
+
+#### HMAC Signature Verification (Optional)
+
+> **⚠️ Security Warning:** Client-side secrets can be extracted from bundled JavaScript. For production deployments with sensitive requirements, use your own backend server to proxy requests instead of embedding secrets in frontend code.
+
+WebistzuPDF uses client-side HMAC as a deterrent against casual abuse, but accepts this tradeoff due to its fully client-side architecture. To enable:
+
+```bash
+# Generate a secret
+openssl rand -hex 32
+
+# Set on Cloudflare Worker
+npx wrangler secret put PROXY_SECRET
+
+# Set in build environment
+VITE_CORS_PROXY_SECRET=your-secret npm run build
+```
+
+### 📦 Version Management
+
+WebistzuPDF supports semantic versioning with multiple Docker tags available on both Docker Hub and GitHub Container Registry:
+
+**Docker Hub:**
+
+- **Latest**: `ghcr.io/zara-datacenter/webistzupdf:latest`
+- **Specific Version**: `ghcr.io/zara-datacenter/webistzupdf:1.0.0`
+- **Version with Prefix**: `ghcr.io/zara-datacenter/webistzupdf:v1.0.0`
+
+**GitHub Container Registry:**
+
+- **Latest**: `ghcr.io/zara-datacenter/webistzupdf:latest`
+- **Specific Version**: `ghcr.io/zara-datacenter/webistzupdf:1.0.0`
+- **Version with Prefix**: `ghcr.io/zara-datacenter/webistzupdf:v1.0.0`
+
+#### Quick Release
+
+```bash
+# Release a patch version (0.0.1 → 0.0.2)
+npm run release
+
+# Release a minor version (0.0.1 → 0.1.0)
+npm run release:minor
+
+# Release a major version (0.0.1 → 1.0.0)
+npm run release:major
+```
+
+For detailed release instructions, see [RELEASE.md](RELEASE.md).
+
+### 🚀 Development Setup
+
+#### Option 1: Run with npm
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/Zara-Datacenter/webistzupdf.git
+   cd webistzupdf
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173`.
+
+#### Option 2: Build and Run with Docker Compose
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/Zara-Datacenter/webistzupdf.git
+   cd webistzupdf
+   ```
+
+2. **Run with Docker Compose**:
+
+   ```bash
+   docker-compose -f docker-compose.dev.yml up -d
+   ```
+
+   The application will be available at `http://localhost:3000`.
+
+   > **Note:** After making any local changes to the code, rebuild the Docker image using:
+
+   ```bash
+   docker-compose -f docker-compose.dev.yml up --build -d
+   ```
+
+   This ensures your latest changes are applied inside the container.
+
+---
+
+## 🛠️ Tech Stack & Background
+
+WebistzuPDF was originally built using **HTML**, **CSS**, and **vanilla JavaScript**. As the project grew, it was migrated to a modern stack for better maintainability and scalability:
+
+- **Vite**: A fast build tool for modern web development.
+- **TypeScript**: For type safety and an improved developer experience.
+- **Tailwind CSS**: For rapid and consistent UI development.
+
+> **Note:** Some parts of the codebase still use legacy structures from the original implementation. Contributors should expect gradual updates as testing and refactoring continue.
+
+---
+
+## 🗺️ Roadmap
+
+### Planned Features:
+
+- **HTML to PDF**: Convert HTML files or web pages into PDF documents.
+- **Markdown to PDF**: Enhanced support for converting `.md` files to PDF.
+- **Convert to PDF/A**: Convert PDFs to the PDF/A archival format.
+- **Edit PDF Content**: Directly edit text and other content within your PDF.
+- **PDF to Office**: Converts PDF files into editable Word, Excel, and PowerPoint formats.
+- **Office to PDF**: Converts Word, Excel, and PowerPoint documents into optimized PDFs.
+
+Contributions and discussions on the roadmap are welcome! Join the conversation via [Discord](https://discord.gg/Bgq3Ay3f2w).
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Here's how you can get started:
+
+1.  **Fork the repository** and create your branch from `main`.
+2.  Follow the **Getting Started** steps to set up your local environment.
+3.  Make your changes and commit them with a clear message.
+4.  **Open a Pull Request** and describe the changes you've made.
+
+Have an idea for a new tool or an improvement? [Open an issue](https://github.com/Zara-Datacenter/webistzupdf/issues) to discuss it first.
+
+### 📖 Contributing to Documentation
+
+Our documentation is built with [VitePress](https://vitepress.dev/). Here's how to contribute:
+
+```bash
+# Install dependencies
+npm install
+
+# Start docs dev server
+npm run docs:dev
+
+# Build docs for production
+npm run docs:build
+
+# Preview the built docs
+npm run docs:preview
+```
+
+Documentation files are in the `docs/` folder:
+
+- `docs/index.md` - Home page
+- `docs/getting-started.md` - Getting started guide
+- `docs/tools/` - Tools reference
+- `docs/self-hosting/` - Self-hosting guides (Docker, Vercel, Netlify, Hostinger, etc.)
+- `docs/contributing.md` - Contributing guide
+- `docs/licensing.md` - License info (MIT)
+
+---
+
+## Special Thanks
+
+WebistzuPDF wouldn't be possible without the amazing open-source tools and libraries that power it. We'd like to extend our heartfelt thanks to the creators and maintainers of:
+
+- **[PDFLib.js](https://pdf-lib.js.org/)** – For enabling powerful client-side PDF manipulation.
+- **[PDF.js](https://mozilla.github.io/pdf.js/)** – For the robust PDF rendering engine in the browser.
+- **[PDFKit](https://pdfkit.org/)** – For creating and editing PDFs with ease.
+- **[EmbedPDF](https://github.com/embedpdf/embed-pdf-viewer)** – For seamless PDF editing in pure JS.
+- **[Cropper.js](https://fengyuanchen.github.io/cropperjs/)** – For intuitive image cropping functionality.
+- **[Vite](https://vitejs.dev/)** – For lightning-fast development and build tooling.
+- **[Tailwind CSS](https://tailwindcss.com/)** – For rapid, flexible, and beautiful UI styling.
+- **[qpdf](https://github.com/qpdf/qpdf)** and **[qpdf-wasm](https://github.com/neslinesli93/qpdf-wasm)**– A powerful command-line tool and library for inspecting, repairing, and transforming PDF file ported to wasm
+- **[cpdf](https://www.coherentpdf.com/)** – For content preserving pdf operations.
+- **[LibreOffice](https://www.libreoffice.org/)** – For powerful document conversion capabilities.
+- **[PyMuPDF](https://github.com/pymupdf/PyMuPDF)** – For high-performance PDF manipulation and data extraction.
+- **[Ghostscript(GhostPDL)](https://github.com/ArtifexSoftware/ghostpdl)** – Needs no Introduction.
+
+Your work inspires and empowers developers everywhere. Thank you for making open-source amazing!

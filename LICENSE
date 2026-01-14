@@ -1,0 +1,52 @@
+MIT License
+
+Copyright (c) 2024-2026 WebistzuPDF Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Components
+
+This project includes the following third-party components with their own licenses:
+
+### AGPL-3.0 Licensed Components
+The following components are licensed under GNU Affero General Public License v3.0.
+If you use these components, you must comply with AGPL-3.0 requirements.
+
+- **CPDF (Coherent PDF)** - PDF manipulation library
+- **PyMuPDF** - PDF rendering and manipulation  
+- **Ghostscript** - PostScript/PDF interpreter
+
+### Permissively Licensed Components
+- **PDF.js** (Apache 2.0) - PDF rendering
+- **pdf-lib** (MIT) - PDF manipulation
+- **All other dependencies** - See package.json for individual licenses
+
+---
+
+## Important Notice
+
+While the WebistzuPDF source code is MIT licensed, the complete application 
+includes AGPL-3.0 components. Users who distribute or provide network access 
+to the complete application (including AGPL components) must comply with 
+AGPL-3.0 requirements for those components.
+
+For a version without AGPL dependencies, you can use only the MIT-licensed 
+portions of this codebase with pdf-lib and PDF.js.
