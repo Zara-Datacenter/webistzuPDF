@@ -1,10 +1,11 @@
 // Self-contained Form Filler logic for standalone page
 import { createIcons, icons } from 'lucide';
-import { getPDFDocument } from '../utils/helpers.js';
+import { getPDFDocument, downloadFile } from '../utils/helpers.js';
 
 let viewerIframe: HTMLIFrameElement | null = null;
 let viewerReady = false;
 let currentFile: File | null = null;
+let pdfArrayBuffer: ArrayBuffer | null = null;
 
 // UI helpers
 function showLoader(message: string = 'Processing...') {
@@ -70,6 +71,7 @@ function resetState() {
     viewerIframe = null;
     viewerReady = false;
     currentFile = null;
+    pdfArrayBuffer = null;
     const displayArea = document.getElementById('file-display-area');
     if (displayArea) displayArea.innerHTML = '';
     document.getElementById('form-filler-options')?.classList.add('hidden');
@@ -90,6 +92,48 @@ function resetState() {
         toolUploader.classList.remove('max-w-6xl');
         toolUploader.classList.add('max-w-2xl');
     }
+
+    // Remove message listener
+    window.removeEventListener('message', handleViewerMessage);
+}
+
+// Handle messages from the form-viewer iframe
+function handleViewerMessage(event: MessageEvent) {
+    const { type, data, message, numPages } = event.data;
+
+    switch (type) {
+        case 'viewerReady':
+            console.log('Form viewer ready, loading PDF...');
+            if (pdfArrayBuffer && viewerIframe?.contentWindow) {
+                viewerIframe.contentWindow.postMessage(
+                    { type: 'loadPDF', data: new Uint8Array(pdfArrayBuffer) },
+                    '*'
+                );
+            }
+            break;
+
+        case 'pdfLoaded':
+            console.log(`PDF loaded with ${numPages} pages`);
+            viewerReady = true;
+            hideLoader();
+            break;
+
+        case 'error':
+            console.error('Form viewer error:', message);
+            hideLoader();
+            showAlert('Error', message || 'An error occurred while processing the PDF.');
+            break;
+
+        case 'downloadPDF':
+            console.log('Downloading filled PDF...');
+            if (data) {
+                const pdfBytes = new Uint8Array(data);
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const filename = currentFile?.name?.replace('.pdf', '-filled.pdf') || 'filled-form.pdf';
+                downloadFile(blob, filename);
+            }
+            break;
+    }
 }
 
 // File handling
@@ -100,6 +144,7 @@ async function handleFileUpload(file: File) {
     }
 
     currentFile = file;
+    pdfArrayBuffer = await file.arrayBuffer();
     updateFileDisplay();
     await setupFormViewer();
 }
@@ -127,7 +172,7 @@ async function adjustViewerHeight(file: File) {
 }
 
 async function setupFormViewer() {
-    if (!currentFile) return;
+    if (!currentFile || !pdfArrayBuffer) return;
 
     showLoader('Loading PDF form...');
     const pdfViewerContainer = document.getElementById('pdf-viewer-container');
@@ -152,20 +197,17 @@ async function setupFormViewer() {
 
         pdfViewerContainer.innerHTML = '';
 
-        const arrayBuffer = await currentFile.arrayBuffer();
-        const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
-        const blobUrl = URL.createObjectURL(blob);
+        // Set up message listener for communication with iframe
+        window.removeEventListener('message', handleViewerMessage);
+        window.addEventListener('message', handleViewerMessage);
 
+        // Create iframe and load form-viewer.html (NOT the standard viewer.html)
         viewerIframe = document.createElement('iframe');
-        viewerIframe.src = `${import.meta.env.BASE_URL}pdfjs-viewer/viewer.html?file=${encodeURIComponent(blobUrl)}`;
+        viewerIframe.src = `${import.meta.env.BASE_URL}pdfjs-viewer/form-viewer.html`;
         viewerIframe.style.width = '100%';
         viewerIframe.style.height = '100%';
         viewerIframe.style.border = 'none';
-
-        viewerIframe.onload = () => {
-            viewerReady = true;
-            hideLoader();
-        };
+        viewerIframe.style.minHeight = '600px';
 
         pdfViewerContainer.appendChild(viewerIframe);
 
@@ -185,38 +227,11 @@ async function processAndDownloadForm() {
     }
 
     try {
-        const viewerWindow = viewerIframe.contentWindow;
-        if (!viewerWindow) {
-            console.error('Cannot access iframe window');
-            showAlert('Download', 'Please use the Download button in the PDF viewer toolbar above.');
-            return;
-        }
-
-        const viewerDoc = viewerWindow.document;
-        if (!viewerDoc) {
-            console.error('Cannot access iframe document');
-            showAlert('Download', 'Please use the Download button in the PDF viewer toolbar above.');
-            return;
-        }
-
-        const downloadBtn = viewerDoc.getElementById('downloadButton') as HTMLButtonElement | null;
-
-        if (downloadBtn) {
-            console.log('Clicking download button...');
-            downloadBtn.click();
-        } else {
-            console.error('Download button not found in viewer');
-            const secondaryDownload = viewerDoc.getElementById('secondaryDownload') as HTMLButtonElement | null;
-            if (secondaryDownload) {
-                console.log('Clicking secondary download button...');
-                secondaryDownload.click();
-            } else {
-                showAlert('Download', 'Please use the Download button in the PDF viewer toolbar above.');
-            }
-        }
+        // Request the viewer to save and send back the PDF data
+        viewerIframe.contentWindow?.postMessage({ type: 'getData' }, '*');
     } catch (e) {
         console.error('Failed to trigger download:', e);
-        showAlert('Download', 'Cannot access viewer controls. Please use the Download button in the PDF viewer toolbar above.');
+        showAlert('Download', 'Failed to process the form. Please try using the Download button in the viewer toolbar.');
     }
 }
 
