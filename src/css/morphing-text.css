@@ -1,0 +1,41 @@
+/**
+ * Morphing Text Component Styles
+ * Required for the gooey/inflating effect
+ */
+
+.morphing-text-container {
+    display: inline-grid;
+    grid-template-areas: "content";
+    filter: url(#threshold) blur(0.6px);
+    vertical-align: middle;
+    position: relative;
+    /* Essential for the filter to work smoothly */
+    will-change: filter;
+}
+
+.morphing-text-item {
+    grid-area: content;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+
+    /* Inherit generic text styles */
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    /* Center items */
+    align-self: center;
+    justify-self: center;
+}
+
+/* Hide the SVG filter definition element */
+.hidden-svg-filter {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}

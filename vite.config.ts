@@ -273,6 +273,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@/types': resolve(__dirname, 'src/js/types/index.ts'),
+        '@/ui': resolve(__dirname, 'src/js/ui/index.ts'),
         stream: 'stream-browserify',
         zlib: 'browserify-zlib',
       },

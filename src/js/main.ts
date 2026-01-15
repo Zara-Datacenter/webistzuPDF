@@ -16,6 +16,10 @@ import {
   t,
 } from './i18n/index.js';
 import { startBackgroundPreload } from './utils/wasm-preloader.js';
+import { initHeroEffect } from './utils/hero-effect-init.js';
+import { addHandWrittenCircle } from './ui/components/hand-written-title.js';
+// import { addSparkles } from './ui/components/sparkles-text.js';
+import { addMorphingText } from './ui/components/morphing-text.js';
 
 const init = async () => {
   await initI18n();
@@ -169,6 +173,31 @@ const init = async () => {
     };
 
     hideBrandingSections();
+  }
+
+  // Initialize Hero Effect (animated particles background) on all pages
+  if (!__SIMPLE_MODE__) {
+    initHeroEffect();
+
+    // Initialize Hand-Written Circle animation around privacy text
+    const hwContainer = document.getElementById('hw-title-container');
+    if (hwContainer) {
+      addHandWrittenCircle({
+        container: hwContainer,
+        delay: 500, // Start animation after 500ms
+      });
+    }
+
+    // Initialize Morphing Text effect on PDF Toolkit badge
+    const morphingContainer = document.getElementById('morphing-container');
+    if (morphingContainer) {
+      // Initialize Morphing Text
+      addMorphingText({
+        container: '#morphing-container',
+        texts: ['PDF Toolkit', 'Privacy Tool', 'Offline Utility', 'Secure Editor'],
+        textClassName: 'text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-400 font-bold',
+      });
+    }
   }
 
   // Hide shortcuts buttons on mobile devices (Android/iOS)
@@ -683,30 +712,30 @@ const init = async () => {
 
   // Reserved shortcuts that commonly conflict with browser/OS functions
   const RESERVED_SHORTCUTS: Record<string, { mac?: string; windows?: string }> =
-    {
-      'mod+w': { mac: 'Closes tab', windows: 'Closes tab' },
-      'mod+t': { mac: 'Opens new tab', windows: 'Opens new tab' },
-      'mod+n': { mac: 'Opens new window', windows: 'Opens new window' },
-      'mod+shift+n': {
-        mac: 'Opens incognito window',
-        windows: 'Opens incognito window',
-      },
-      'mod+q': { mac: 'Quits application (cannot be overridden)' },
-      'mod+m': { mac: 'Minimizes window' },
-      'mod+h': { mac: 'Hides window' },
-      'mod+r': { mac: 'Reloads page', windows: 'Reloads page' },
-      'mod+shift+r': { mac: 'Hard reloads page', windows: 'Hard reloads page' },
-      'mod+l': { mac: 'Focuses address bar', windows: 'Focuses address bar' },
-      'mod+d': { mac: 'Bookmarks page', windows: 'Bookmarks page' },
-      'mod+shift+t': {
-        mac: 'Reopens closed tab',
-        windows: 'Reopens closed tab',
-      },
-      'mod+shift+w': { mac: 'Closes window', windows: 'Closes window' },
-      'mod+tab': { mac: 'Switches tabs', windows: 'Switches apps' },
-      'alt+f4': { windows: 'Closes window' },
-      'ctrl+tab': { mac: 'Switches tabs', windows: 'Switches tabs' },
-    };
+  {
+    'mod+w': { mac: 'Closes tab', windows: 'Closes tab' },
+    'mod+t': { mac: 'Opens new tab', windows: 'Opens new tab' },
+    'mod+n': { mac: 'Opens new window', windows: 'Opens new window' },
+    'mod+shift+n': {
+      mac: 'Opens incognito window',
+      windows: 'Opens incognito window',
+    },
+    'mod+q': { mac: 'Quits application (cannot be overridden)' },
+    'mod+m': { mac: 'Minimizes window' },
+    'mod+h': { mac: 'Hides window' },
+    'mod+r': { mac: 'Reloads page', windows: 'Reloads page' },
+    'mod+shift+r': { mac: 'Hard reloads page', windows: 'Hard reloads page' },
+    'mod+l': { mac: 'Focuses address bar', windows: 'Focuses address bar' },
+    'mod+d': { mac: 'Bookmarks page', windows: 'Bookmarks page' },
+    'mod+shift+t': {
+      mac: 'Reopens closed tab',
+      windows: 'Reopens closed tab',
+    },
+    'mod+shift+w': { mac: 'Closes window', windows: 'Closes window' },
+    'mod+tab': { mac: 'Switches tabs', windows: 'Switches apps' },
+    'alt+f4': { windows: 'Closes window' },
+    'ctrl+tab': { mac: 'Switches tabs', windows: 'Switches tabs' },
+  };
 
   function getReservedShortcutWarning(
     combo: string,
@@ -943,8 +972,8 @@ const init = async () => {
               await showWarningModal(
                 t('settings.warnings.alreadyInUse'),
                 `<strong>${displayCombo}</strong> ${t('settings.warnings.assignedTo')}<br><br>` +
-                  `<em>"${translatedToolName}"</em><br><br>` +
-                  t('settings.warnings.chooseDifferent'),
+                `<em>"${translatedToolName}"</em><br><br>` +
+                t('settings.warnings.chooseDifferent'),
                 false
               );
 
@@ -963,9 +992,9 @@ const init = async () => {
               const shouldProceed = await showWarningModal(
                 t('settings.warnings.reserved'),
                 `<strong>${displayCombo}</strong> ${t('settings.warnings.commonlyUsed')}<br><br>` +
-                  `"<em>${reservedWarning}</em>"<br><br>` +
-                  `${t('settings.warnings.unreliable')}<br><br>` +
-                  t('settings.warnings.useAnyway')
+                `"<em>${reservedWarning}</em>"<br><br>` +
+                `${t('settings.warnings.unreliable')}<br><br>` +
+                t('settings.warnings.useAnyway')
               );
 
               if (!shouldProceed) {

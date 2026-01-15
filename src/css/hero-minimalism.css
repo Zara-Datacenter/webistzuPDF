@@ -1,0 +1,347 @@
+/**
+ * MinimalHero Component Styles - Blue Theme
+ * Matches WebistzuPDF's sky-blue color scheme
+ */
+
+@import url('https://fonts.cdnfonts.com/css/hubot-sans');
+
+/* Root container */
+.minimal-root,
+.minimal-root * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.minimal-root {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+
+    /* Blue theme colors matching WebistzuPDF */
+    --minimal-bg: #0f172a;
+    /* Slate 900 */
+    --minimal-fg: #f8fafc;
+    /* Slate 50 */
+    --minimal-muted: #94a3b8;
+    /* Slate 400 */
+    --minimal-border: #0ea5e9;
+    /* Sky 500 */
+    --minimal-accent: #38bdf8;
+    /* Sky 400 */
+
+    background: transparent;
+    color: var(--minimal-fg);
+    font-family: 'Hubot Sans', 'DM Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* When used as standalone full-screen hero */
+.minimal-root.standalone {
+    position: fixed;
+    background: var(--minimal-bg);
+}
+
+/* Header - only show in standalone mode */
+.minimal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+    z-index: 10;
+}
+
+.minimal-brand {
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--minimal-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.minimal-brand:hover {
+    color: var(--minimal-fg);
+}
+
+.minimal-cta {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #0ea5e9, #0284c7);
+    color: var(--minimal-fg);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-size: 13px;
+    line-height: 36px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.minimal-cta:hover {
+    background: linear-gradient(to bottom, #38bdf8, #0ea5e9);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+
+/* Hero center - only show in standalone mode */
+.minimal-hero {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.minimal-kicker {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--minimal-accent);
+    margin-bottom: 14px;
+}
+
+.minimal-title {
+    font-weight: 600;
+    font-size: clamp(32px, 8vw, 88px);
+    line-height: 0.95;
+    margin: 0;
+    color: var(--minimal-fg);
+    text-shadow: 0 0 40px rgba(14, 165, 233, 0.3);
+}
+
+.minimal-subtitle {
+    margin-top: 18px;
+    font-size: clamp(14px, 2.2vw, 18px);
+    color: var(--minimal-muted);
+}
+
+/* Accent lines container */
+.minimal-accent-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Base line visuals - Blue theme */
+.minimal-hline,
+.minimal-vline {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.4), transparent);
+    opacity: 0.5;
+    will-change: transform, opacity;
+}
+
+/* Horizontal lines */
+.minimal-hline {
+    height: 1px;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 50% 50%;
+    animation: minimal-drawX 800ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.minimal-hline:nth-child(1) {
+    top: 20%;
+    animation-delay: 150ms;
+}
+
+.minimal-hline:nth-child(2) {
+    top: 50%;
+    animation-delay: 280ms;
+}
+
+.minimal-hline:nth-child(3) {
+    top: 80%;
+    animation-delay: 410ms;
+}
+
+/* Vertical lines */
+.minimal-vline {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent, rgba(14, 165, 233, 0.4), transparent);
+    transform: scaleY(0);
+    transform-origin: 50% 0%;
+    animation: minimal-drawY 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.minimal-vline:nth-child(4) {
+    left: 20%;
+    animation-delay: 520ms;
+}
+
+.minimal-vline:nth-child(5) {
+    left: 50%;
+    animation-delay: 640ms;
+}
+
+.minimal-vline:nth-child(6) {
+    left: 80%;
+    animation-delay: 760ms;
+}
+
+/* Subtle gradient shimmer while drawing - Blue */
+.minimal-hline::after,
+.minimal-vline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+    opacity: 0;
+    animation: minimal-shimmer 900ms ease-out forwards;
+}
+
+.minimal-hline:nth-child(1)::after {
+    animation-delay: 150ms;
+}
+
+.minimal-hline:nth-child(2)::after {
+    animation-delay: 280ms;
+}
+
+.minimal-hline:nth-child(3)::after {
+    animation-delay: 410ms;
+}
+
+.minimal-vline:nth-child(4)::after {
+    animation-delay: 520ms;
+}
+
+.minimal-vline:nth-child(5)::after {
+    animation-delay: 640ms;
+}
+
+.minimal-vline:nth-child(6)::after {
+    animation-delay: 760ms;
+}
+
+/* Keyframes */
+@keyframes minimal-drawX {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scaleX(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes minimal-drawY {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes minimal-shimmer {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Canvas - Blue particles */
+.minimal-particleCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/* Footer section (copy) - only show in standalone mode */
+.minimal-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 32px 24px;
+    border-top: 1px solid rgba(14, 165, 233, 0.2);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    gap: 6px;
+    z-index: 10;
+}
+
+.minimal-tag {
+    font-size: 12px;
+    color: var(--minimal-accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.minimal-heading {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--minimal-fg);
+}
+
+.minimal-desc {
+    font-size: 14px;
+    color: var(--minimal-muted);
+    max-width: 680px;
+    margin: 0;
+}
+
+/* Hide content sections when used as background effect */
+.minimal-root.background-only .minimal-header,
+.minimal-root.background-only .minimal-hero,
+.minimal-root.background-only .minimal-content {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .minimal-header {
+        padding: 16px 20px;
+    }
+
+    .minimal-content {
+        padding: 24px 20px;
+    }
+
+    .minimal-heading {
+        font-size: 18px;
+    }
+
+    .minimal-desc {
+        font-size: 13px;
+    }
+}

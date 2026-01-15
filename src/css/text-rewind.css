@@ -1,0 +1,88 @@
+/**
+ * TextRewind Component Styles
+ * CSS text-shadow effect that rewinds on hover
+ * Converted from React/framer-motion
+ * Works with gradient text using a clever overlay technique
+ */
+
+/* Text Rewind Container */
+.text-rewind-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Base text layer - the gradient text */
+.text-rewind-container .text-rewind-gradient {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Shadow layer using data attribute */
+.text-rewind-container::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: transparent;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-shadow:
+        2px 2px 0px rgba(56, 189, 248, 0.9),
+        4px 4px 0px rgba(168, 85, 247, 0.8),
+        6px 6px 0px rgba(192, 38, 211, 0.6),
+        10px 10px 8px rgba(236, 72, 153, 0.4);
+    transition: text-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    pointer-events: none;
+    opacity: 1;
+}
+
+/* Hover state - rewind effect */
+.text-rewind-container:hover::before {
+    text-shadow: none;
+    opacity: 0;
+}
+
+/* Animation for initial appearance */
+.text-rewind-container.text-rewind-animate::before {
+    animation: text-rewind-in 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+@keyframes text-rewind-in {
+    0% {
+        text-shadow: none;
+        opacity: 0;
+    }
+
+    100% {
+        text-shadow:
+            2px 2px 0px rgba(56, 189, 248, 0.9),
+            4px 4px 0px rgba(168, 85, 247, 0.8),
+            6px 6px 0px rgba(192, 38, 211, 0.6),
+            10px 10px 8px rgba(236, 72, 153, 0.4);
+        opacity: 1;
+    }
+}
+
+/* Simple inline text-rewind (non-gradient) */
+.text-rewind {
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: text-shadow 0.3s ease-in-out;
+    text-shadow:
+        2px 2px 0px rgba(56, 189, 248, 0.8),
+        4px 4px 0px rgba(168, 85, 247, 0.7),
+        6px 6px 0px rgba(192, 38, 211, 0.5),
+        10px 10px 8px rgba(236, 72, 153, 0.3);
+}
+
+.text-rewind:hover {
+    text-shadow: none;
+}
